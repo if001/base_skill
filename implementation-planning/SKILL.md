@@ -15,7 +15,7 @@ description: Project Overview と作成済みドキュメントを基に、実�
 
 ## 原則
 
-実装はTDDで進める。(`./references/tdd.md`を参照する。)
+実装はTDDで進める。(`implementation-planning/references/tdd.md`を参照する。)
 
 各作業は原則として:
 

@@ -8,7 +8,7 @@ description: Requirements、Architecture、ADR、Test Strategy など、指定�
 ## 手順
 
 1. `./docs/PROJECT_OVERVIEW.md`、`./docs/DOCUMENTATION_PLAN.md`、既存ドキュメントを読む。
-2. 指定されたドキュメントと対応する `./references/`以下のドキュメントを参照する。
+2. 指定されたドキュメントと対応する `document-interview/references/`以下のドキュメントを参照する。
 4. 不足・曖昧・矛盾を整理する。
 5. skill `grill-me-with-goal` を使い、完成に必要な事項を一問ずつ確認する。
 6. 完了条件を満たしたら質問を終了する。
