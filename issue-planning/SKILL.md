@@ -1,6 +1,6 @@
 ---
 name: issue-planning
-discription: IMPLEMENTATION_PLAN.md を、独立して実装・テスト可能なIssueへ分割し、依存関係と完了条件を整理する。実装計画が完成し、実際の開発タスクへ落とし込むときに使う。
+description: IMPLEMENTATION_PLAN.md を、独立して実装・テスト可能なIssueへ分割し、依存関係と完了条件を整理する。実装計画が完成し、実際の開発タスクへ落とし込むときに使う。
 ---
 
 `./docs/IMPLEMENTATION_PLAN.md` を実行可能な Issue に分割する。

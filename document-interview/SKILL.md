@@ -1,6 +1,6 @@
 ---
 name: document-interview
-discription: Requirements、Architecture、ADR、Test Strategy など、指定された1つのドキュメントをインタビューを通じて完成させる。DOCUMENTATION_PLAN.md で作成対象が決まった後、各ドキュメントを個別に作成するときに使う。
+description: Requirements、Architecture、ADR、Test Strategy など、指定された1つのドキュメントをインタビューを通じて完成させる。DOCUMENTATION_PLAN.md で作成対象が決まった後、各ドキュメントを個別に作成するときに使う。
 ---
 
 指定された1つのドキュメントを完成させる。ドキュメントが指定されていない場合、手順を実行せず終了する。

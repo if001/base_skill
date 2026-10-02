@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-discription: Project Overview と作成済みドキュメントを基に、実装対象、依存関係、実装順序、テスト方針を整理し、IMPLEMENTATION_PLAN.md を作成する。必要な設計ドキュメントが揃い、Issueへ分割する前に使う。
+description: Project Overview と作成済みドキュメントを基に、実装対象、依存関係、実装順序、テスト方針を整理し、IMPLEMENTATION_PLAN.md を作成する。必要な設計ドキュメントが揃い、Issueへ分割する前に使う。
 ---
 
 作成済みドキュメントから実装計画を作成する。
