@@ -14,15 +14,19 @@ Issueを作成する前に、ghコマンドでgithub上にissueを作成する�
 3. Issue 間の依存関係を整理する。
 4. 各 Issue に完了条件を設定する。
 
-## Issue
+## ローカルissueの実施手順
+Issueごとに、branchを変更し、実装を進めます。
+Issue案だけ作成し実装は進めないこと。
 
-各 Issue には必要に応じて以下を含める。
-
-- Goal
-- Scope
-- References
-- Acceptance criteria
-- Tests
-- Dependencies
-
-Issue は実装方法を過度に固定しない。
+- 1 Issue = Codexが1セッション程度で実装・検証できるサイズ
+- フロントマターとして、created_at: YYYY-MM-DDと、status: created/doing/done/stop を設定する
+- 各Issueは可能な限り独立させる
+- 依存関係がある場合は明記する
+- 各Issueに以下を含める
+  - Background
+  - Scope
+  - Out of scope
+  - Implementation notes
+  - Acceptance criteria
+  - Tests
+- 元計画へのリンクを付ける
