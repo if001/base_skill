@@ -10,7 +10,7 @@ description: 初期アイデアからプロジェクトの目的、対象ユー�
 
 1. ユーザーの初期情報と、`spec/` 以下の一次ドキュメントを読む。
 2. skill `grill-me-with-goal` を使い、Overview 作成に必要な不足情報を一問ずつ確認する。
-3. 十分な情報が揃ったら `./docs/PROJECT_OVERVIEW.md` を作成する。
+3. 十分な情報が揃ったら `./docs/D1/PROJECT_OVERVIEW.md` を作成する。
 
 ## ID
 

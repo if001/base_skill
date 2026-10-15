@@ -25,8 +25,8 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
 
 | 段階 | 照合する成果物 |
 |---|---|
-| `docs` | `spec/`、`docs/PROJECT_OVERVIEW.md`、`docs/` の各設計文書 |
-| `plan` | 上記＋`docs/IMPLEMENTATION_PLAN.md` |
+| `docs` | `spec/`、`docs/D1/`、`docs/D2/` の各設計文書 |
+| `plan` | 上記＋`docs/D2/IMPLEMENTATION_PLAN.md` |
 | `issues` | 上記＋`issues/` |
 | `impl` | 上記＋テストとコード（画面がある場合は画面の構成と文言） |
 | `change` | 直近の変更（`git diff`、変更 Issue）に関係する範囲。変更が一次ドキュメントの目的・決定事項・非スコープに反しないかを重点的に見る |
@@ -34,7 +34,7 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
 
 ## 手順
 
-1. `spec/`、`docs/`、`issues/`、テスト、コードの所在を確認する。ID の規則は `${CLAUDE_SKILL_DIR}/../document-interview/references/ID-Rules.md` を読む。
+1. `spec/`、`docs/D1/`、`docs/D2/`、`issues/`、テスト、コードの所在を確認する。`docs/work/` は作業中の記録であり、照合の基準にしない。ID の規則は `${CLAUDE_SKILL_DIR}/../document-interview/references/ID-Rules.md` を読む。
 2. 機械検査を実行する。
 
    ```
@@ -62,7 +62,7 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
    | MEDIUM | 文書間の不整合、古い記述、由来のない ID |
    | LOW | 用語の揺れなど、動作や判断に影響しないもの |
 
-5. レポートを `docs/D2/analyze/YYYY-MM-DD-<段階>.md` に書く（形式は [references/report-template.md](references/report-template.md)）。
+5. レポートを `docs/work/analyze/YYYY-MM-DD-<段階>.md` に書く（形式は [references/report-template.md](references/report-template.md)）。
 6. 会話には、重大度ごとの件数と、Issue 化を推奨する指摘の一覧だけを返す。
 
 ## 終了条件

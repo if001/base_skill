@@ -8,15 +8,26 @@ claudeの場合
 
 ## ドキュメント構成
 
+ディレクトリはあらかじめ固定する。エージェントが任意にディレクトリを作らないようにする。
+
 ``` shell
-spec/          :概念設計などを配置(人が把握しているもの)
----
-docs/          :document-interviewで作成した、ARCHITECTURE.md, TEST_STRATEGY.mdなど
-docs/D2/       :AIが実装中に作成したチェックリストなど
-docs/D2/analyze/ :spec-analyze の分析レポート
-docs/note/     :一時的なメモ
-docs/planning/ :AIが実装中に作成する計画など
+spec/              :一次ドキュメント（人が書き、内容を把握しているもの）C-NN
+docs/D1/           :discovery-interview が作成する PROJECT_OVERVIEW.md（OV-NN）
+docs/D2/           :設計文書と計画（DOCUMENTATION_PLAN、REQUIREMENTS、ARCHITECTURE、
+                    TEST_STRATEGY、UI_GUIDELINES、IMPLEMENTATION_PLAN）
+docs/work/         :作業中の記録（正ではない）
+  analyze/         :spec-analyze のレポート
+  reviews/         :コードレビューの結果
+  test-runs/       :テスト実行後のメモ、カバレッジ
+  checklists/      :作業用のチェックリスト
+  planning/        :grill-me-with-goal の goal-state など
+  design/          :UI セルフチェックのラウンド記録
+  notes/           :上のどれにも当たらないメモ
+issues/            :Issue（1ファイル1件）
 ```
+
+- 実装とテストの根拠にしてよいのは `spec/`、`docs/D1/`、`docs/D2/` だけ。`docs/work/` は記録であり、見つかった指摘は Issue か正の文書に反映する。
+- プロジェクトには `templates/AGENTS.md` と `templates/CLAUDE.md` をコピーして使う（CLAUDE.md は `@AGENTS.md` で AGENTS.md を取り込む）。
 
 ## skillの利用フロー
 以下のフローを想定(各ステップでsession分けた方が良さそう)
@@ -28,7 +39,7 @@ docs/planning/ :AIが実装中に作成する計画など
 
     ↓
 
-2. discovery-interview: 「xxxをyyyするwebアプリケーションを作成する。」の指示と概念設計からプロジェクトのoverviewを作成する。
+2. discovery-interview: 「xxxをyyyするwebアプリケーションを作成する。」の指示と概念設計からプロジェクトのoverview（docs/D1/PROJECT_OVERVIEW.md）を作成する。
 
     ↓
 

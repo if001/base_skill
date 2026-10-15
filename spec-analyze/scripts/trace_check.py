@@ -28,16 +28,23 @@ from dataclasses import dataclass, field
 ID_RE = re.compile(r"(?<![A-Za-z0-9_-])((?:C|OV|FR|NFR|AC|UI|ADR|W)(?:-[A-Z]{1,6})?-\d+)(?![0-9-])")
 
 # 接頭辞ごとの所有文書（定義を置く文書）
+# 標準の配置は docs/D1/（Overview）と docs/D2/（設計文書と計画）。
+# 旧配置（docs/ 直下）のプロジェクトも検査できるよう、両方を受け付ける。
+def _d2(name: str) -> list[str]:
+    return [f"docs/D2/{name}", f"docs/{name}"]
+
+
 OWNERS = {
     "C": ["spec/**/*.md", "spec/*.md"],
-    "OV": ["docs/PROJECT_OVERVIEW.md"],
-    "FR": ["docs/REQUIREMENTS.md"],
-    "NFR": ["docs/REQUIREMENTS.md"],
-    "AC": ["docs/REQUIREMENTS.md"],
-    "UI": ["docs/UI_GUIDELINES.md"],
-    "ADR": ["docs/ARCHITECTURE.md", "docs/adr/*.md", "docs/adr/**/*.md", "docs/ADR*.md"],
-    "W": ["docs/IMPLEMENTATION_PLAN.md"],
+    "OV": ["docs/D1/PROJECT_OVERVIEW.md", "docs/PROJECT_OVERVIEW.md"],
+    "FR": _d2("REQUIREMENTS.md"),
+    "NFR": _d2("REQUIREMENTS.md"),
+    "AC": _d2("REQUIREMENTS.md"),
+    "UI": _d2("UI_GUIDELINES.md"),
+    "ADR": _d2("ARCHITECTURE.md") + ["docs/D2/adr/*.md", "docs/D2/adr/**/*.md", "docs/adr/*.md", "docs/adr/**/*.md"],
+    "W": _d2("IMPLEMENTATION_PLAN.md"),
 }
+PLAN_FILES = set(_d2("IMPLEMENTATION_PLAN.md"))
 
 # 定義と同じ行に書くべき上流の接頭辞
 UPSTREAM = {
@@ -52,7 +59,8 @@ UPSTREAM = {
 
 SCAN_DIRS = ["spec", "docs", "issues", "src", "test", "tests", "e2e", "app", "lib"]
 EXCLUDE_DIRS = {"node_modules", ".git", "dist", "build", ".wrangler", "coverage", ".next", ".svelte-kit"}
-EXCLUDE_PATHS = ["docs/D2", "docs/reports", "docs/note", "docs/planning"]
+# docs/work/ は作業中の記録（正ではない）。旧配置の作業用ディレクトリも除外する。
+EXCLUDE_PATHS = ["docs/work", "docs/reports", "docs/note", "docs/notes", "docs/planning"]
 EXTS = {".md", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".py", ".go", ".rs", ".java",
         ".kt", ".rb", ".php", ".vue", ".svelte", ".sql", ".swift", ".dart"}
 
@@ -110,7 +118,7 @@ def kind_of(rel: str) -> str:
     name = rel.rsplit("/", 1)[-1]
     if rel.startswith("spec/"):
         return "spec"
-    if rel == "docs/IMPLEMENTATION_PLAN.md":
+    if rel in PLAN_FILES:
         return "plan"
     if rel.startswith("issues/"):
         return "issue"
@@ -198,7 +206,7 @@ def analyze(root: str) -> tuple[Report, dict]:
     has_tests = any(r.kind == "test" for rs in refs.values() for r in rs) or any(
         os.path.isdir(os.path.join(root, d)) for d in ("test", "tests", "e2e"))
     has_issues = os.path.isdir(os.path.join(root, "issues"))
-    has_plan = os.path.isfile(os.path.join(root, "docs/IMPLEMENTATION_PLAN.md"))
+    has_plan = any(os.path.isfile(os.path.join(root, f)) for f in PLAN_FILES)
 
     def ref_kinds(id_):
         return {r.kind for r in refs.get(id_, [])}

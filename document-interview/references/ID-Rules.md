@@ -8,15 +8,16 @@
 | 層 | 文書 | ID の形式 | 例 | 付与する人 |
 |---|---|---|---|---|
 | 一次ドキュメント | `spec/` 以下 | `C-NN` | `C-08` | 人。スキルは提案だけ行い、承認なしに一次ドキュメントを編集しない |
-| Overview | `docs/PROJECT_OVERVIEW.md` | `OV-NN` | `OV-03` | discovery-interview |
-| 機能要件 | `docs/REQUIREMENTS.md` | `FR-<領域>-N`（領域は英大文字。省略可） | `FR-T-7`、`FR-12` | document-interview |
-| 非機能要件 | `docs/REQUIREMENTS.md` | `NFR-N` | `NFR-2` | document-interview |
-| 受け入れ条件 | `docs/REQUIREMENTS.md` | `AC-N` | `AC-14` | document-interview |
-| UI の規則 | `docs/UI_GUIDELINES.md` | `UI-N` | `UI-21` | document-interview |
-| 技術判断 | `docs/ARCHITECTURE.md` または `docs/adr/` | `ADR-N` | `ADR-3` | document-interview |
-| 実装作業 | `docs/IMPLEMENTATION_PLAN.md` | `W-N` | `W-13` | implementation-planning |
+| Overview | `docs/D1/PROJECT_OVERVIEW.md` | `OV-NN` | `OV-03` | discovery-interview |
+| 機能要件 | `docs/D2/REQUIREMENTS.md` | `FR-<領域>-N`（領域は英大文字。省略可） | `FR-T-7`、`FR-12` | document-interview |
+| 非機能要件 | `docs/D2/REQUIREMENTS.md` | `NFR-N` | `NFR-2` | document-interview |
+| 受け入れ条件 | `docs/D2/REQUIREMENTS.md` | `AC-N` | `AC-14` | document-interview |
+| UI の規則 | `docs/D2/UI_GUIDELINES.md` | `UI-N` | `UI-21` | document-interview |
+| 技術判断 | `docs/D2/ARCHITECTURE.md` または `docs/D2/adr/` | `ADR-N` | `ADR-3` | document-interview |
+| 実装作業 | `docs/D2/IMPLEMENTATION_PLAN.md` | `W-N` | `W-13` | implementation-planning |
 
 Issue は番号付きのファイル名（`issues/013-xxx.md`）で識別し、上記の ID をフロントマターで参照する。
+`docs/work/`（作業中の記録）では ID を参照してよいが、定義してはいけない。機械検査は `docs/work/` を対象外にする。
 
 ## 定義と参照
 

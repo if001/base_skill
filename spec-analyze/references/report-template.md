@@ -24,7 +24,7 @@
 
 | # | 重大度 | 観点 | 内容 | 根拠 | 直す側の候補 |
 |---|---|---|---|---|---|
-| 1 | CRITICAL | A | ... | `spec/CONCEPT.md` C-08、`docs/REQUIREMENTS.md` FR-T-7 | 上流（要承認）／下流 |
+| 1 | CRITICAL | A | ... | `spec/CONCEPT.md` C-08、`docs/D2/REQUIREMENTS.md` FR-T-7 | 上流（要承認）／下流 |
 
 ## Issue 化を推奨する指摘
 

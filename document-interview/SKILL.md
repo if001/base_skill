@@ -7,13 +7,13 @@ description: Requirements、Architecture、ADR、Test Strategy など、指定�
 
 ## 手順
 
-1. `./docs/PROJECT_OVERVIEW.md`、`./docs/DOCUMENTATION_PLAN.md`、既存ドキュメントを読む。
+1. `spec/` 以下の一次ドキュメント、`./docs/D1/PROJECT_OVERVIEW.md`、`./docs/D2/DOCUMENTATION_PLAN.md`、既存ドキュメントを読む。
 2. 指定されたドキュメントと対応するskillディレクトリの  `document-interview/references/`以下をリファレンスとして参照する。あわせて `references/ID-Rules.md` を読む。
-   - UI / Design Guidelines を作る場合は `references/UI-Guidelines.md` を参照し、`./docs/UI_GUIDELINES.md` として作成する。
+   - UI / Design Guidelines を作る場合は `references/UI-Guidelines.md` を参照し、`./docs/D2/UI_GUIDELINES.md` として作成する。
 4. 不足・曖昧・矛盾を整理する。
 5. skill `grill-me-with-goal` を使い、完成に必要な事項を一問ずつ確認する。
 6. 完了条件を満たしたら質問を終了する。
-7. ドキュメントを作成する。
+7. ドキュメントを `./docs/D2/` に作成する（例：`./docs/D2/REQUIREMENTS.md`）。インタビュー中の作業状態は `./docs/work/planning/` に置く。
 
 既に決まっていることを再質問しない。
 

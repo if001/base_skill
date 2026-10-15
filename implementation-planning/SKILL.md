@@ -7,11 +7,11 @@ description: Project Overview と作成済みドキュメントを基に、実�
 
 ## 手順
 
-1. Project Overview(`./docs/PROJECT_OVERVIEW.md`) と全ドキュメントを読む。
+1. Project Overview(`./docs/D1/PROJECT_OVERVIEW.md`) と `./docs/D2/` の全ドキュメントを読む。
 2. 実装対象を技術的な作業単位へ分解する。
 3. 依存関係と実装順序を整理する。
 4. テスト方針を各作業へ反映する。
-5. `./docs/IMPLEMENTATION_PLAN.md` を作成する。
+5. `./docs/D2/IMPLEMENTATION_PLAN.md` を作成する。
 6. skill `spec-analyze` を `plan` の段階で実行し、要件の割り当て漏れがないかを確認するようユーザーに提案する。
 
 ## ID
@@ -24,7 +24,7 @@ ID の規則は `../document-interview/references/ID-Rules.md`（このスキル
 
 ## UI がある場合
 
-`./docs/UI_GUIDELINES.md` がある場合は、次を計画に含める。
+`./docs/D2/UI_GUIDELINES.md` がある場合は、次を計画に含める。
 
 - 画面の作業より前に、UI 基盤の作業（デザイントークン、共通部品、部品の見本ページ、確認ツール）を置く。
 - 画面を追加・変更する作業の完了条件に、UI_GUIDELINES のセルフチェックの合格を含める。
