@@ -1,4 +1,6 @@
 # README
+変更履歴は `release-notes/` を参照（最新：[v2.0.0](release-notes/v2.0.0.md)）。
+
 ## install
 `npx skills add issei-fujimoto-accelia/base_skills`
 
