@@ -18,7 +18,7 @@ description: プロジェクト概要を基に、プロジェクトの規模・�
 * ADR
 * Data Design
 * API Spec
-- UI / Design Guidelines
+* UI / Design Guidelines
 * UX / User Flow
 * Security Design
 * Privacy Design
@@ -45,6 +45,15 @@ description: プロジェクト概要を基に、プロジェクトの規模・�
 - API Spec
 - Test Strategy
 
-### UI / Design Guidelines
-クオリティ基準としてはawwwardsやwebby awards、FWSで賞を獲れるくらいのクオリティを目指して、
-セルフチェックでそのクオリティ基準になるまで自分でクオリティアップを繰り返すような方針とします。
+## UI / Design Guidelines
+
+画面を持つアプリケーションでは、規模にかかわらず UI / Design Guidelines（`./docs/UI_GUIDELINES.md`）を作成対象に含める。
+見た目の方針と共通部品が決まらないまま Issue に分割すると、各画面が場当たり的に作られ、後からまとめて直すことになるため。
+
+- 作成順序は Requirements（画面一覧と操作の流れが決まる）の後、Implementation Plan の前に置く。
+- 内容と品質方針は `document-interview/references/UI-Guidelines.md` に従う。品質方針は「Awwwards、Webby Awards、FWA で賞を獲れるくらいのクオリティを目指し、セルフチェックでその基準になるまでクオリティアップを繰り返す」とする。
+- UX / User Flow を独立文書にしない場合は、主要な操作シナリオと画面遷移を UI / Design Guidelines に含める。
+
+## ID
+
+DOCUMENTATION_PLAN.md には、作成する各文書がどの ID を定義するか（`FR`、`UI`、`ADR` など）を記載する。規則は `../document-interview/references/ID-Rules.md`（このスキルのディレクトリからの相対パス） に従う。

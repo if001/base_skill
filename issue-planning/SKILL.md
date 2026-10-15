@@ -13,13 +13,23 @@ Issueを作成する前に、ghコマンドでgithub上にissueを作成する�
 2. 独立して実装・テストできる単位へ分割する。
 3. Issue 間の依存関係を整理する。
 4. 各 Issue に完了条件を設定する。
+5. Issue を作成したら、skill `spec-analyze` を `issues` の段階で実行し、`W` の割り当て漏れや要件の漏れがないかを確認するようユーザーに提案する。
+
+## ID
+
+ID の規則は `../document-interview/references/ID-Rules.md`（このスキルのディレクトリからの相対パス） に従う。
+
+- 1つの `W` を1つ以上の Issue に対応させる。すべての `W` が、いずれかの Issue から参照されるようにする。
+- Issue のフロントマターに `plan`、`requirements`、必要なら `ui` を書く。
+- Tests 欄の各テストは、先頭に検証する要件 ID を書く（例：`FR-T-7: 返信があるスレッドは削除できない`）。
+- 受け入れ条件には、対応する `AC` を書く。
 
 ## ローカルissueの実施手順
 Issueごとに、branchを変更し、実装を進めます。
 Issue案だけ作成し実装は進めないこと。
 
 - 1 Issue = Codexが1セッション程度で実装・検証できるサイズ
-- フロントマターとして、created_at: YYYY-MM-DDと、status: created/doing/done/stop を設定する
+- フロントマターとして、created_at: YYYY-MM-DDと、status: created/doing/done/stop、plan: [W-N]、requirements: [FR-…]、（必要なら）ui: [UI-N] を設定する
 - 各Issueは可能な限り独立させる
 - 依存関係がある場合は明記する
 - 各Issueに以下を含める
