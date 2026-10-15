@@ -1,31 +1,29 @@
 ---
 name: create-local-issue
-description: 会話の内容や計画からlocalファイルとしてissueを作成するときに使う
+description: 会話の内容、計画、spec-analyze やコードレビューの指摘から、ローカルファイルとして Issue を作成するときに使う。既存の文書や実装を変える「変更 Issue」もこのスキルで作る。Issue の作成だけを行い、実装はしない。
 ---
 
-ローカルのファイルとしてissueを作成します。
-Issueごとに、branchを変更し、実装を進めます。
-Issue案だけ作成し実装は進めないこと。
-Issueはissues/ディレクトリ以下に、1ファイル1Issueとして作成してください。
-フロントマターとして、created_at: YYYY-MM-DDと、status: created/doing/done/stop を設定してください。
-あわせて、関連する ID を `plan: [W-N]`、`requirements: [FR-…]`、（必要なら）`ui: [UI-N]` として設定してください。ID の規則は `../document-interview/references/ID-Rules.md`（このスキルのディレクトリからの相対パス） に従います。
-計画や要件にない内容の Issue（ユーザーとの会話から生まれた変更など）は、`requirements: [追加]` とし、Background に、どの文書（一次ドキュメントを含む）に反映が必要かを書いてください。
-対応済のissueはstatusをdoneにすること。
+ローカルのファイルとして Issue を作成する。
+Issue 案を作成するだけで、実装は進めない（実装は skill `implement-issue` で行う）。
+
+## 手順
+
+1. 起点（会話、計画、レポートの指摘）と、関係する正の文書（`spec/`、`docs/D1/`、`docs/D2/`）を読む。`docs/work/` は起点として読んでよいが、根拠にはしない。
+2. 書式は [references/issue-template.md](references/issue-template.md) に従う。
+3. 既存の文書や実装を変える場合は、変更 Issue（`type: change`）として、差分・影響範囲・上流への反映を書く。影響範囲は検索で洗い出す。
+4. `issues/` 以下に1ファイル1件で作成する。番号は既存の最大番号の次から振る。
+5. 作成した Issue の一覧と依存関係を報告する。
 
 ## 条件
-- 1 Issue = Codexが1セッション程度で実装・検証できるサイズ
-- 各Issueは可能な限り独立させる
-- 依存関係がある場合は明記する
-- 各Issueに以下を含める
-  - Background
-  - Scope
-  - Out of scope
-  - Implementation notes
-  - Acceptance criteria
-  - Tests（各テストの先頭に、検証する要件 ID を書く）
-- 元計画へのリンクを付ける
 
-## issue
-- 1 Issueは1commitである必要はありません。複数のstepに分けて実装可能です。
-- Issueがその場限りの修正とならないようにする
-- Issueはコードの修正を行うだけでなく、ユーザーと議論、検討したり、ドキュメントの修正も可能
+- 1 Issue = エージェントが1セッション程度で実装・検証できるサイズ
+- 各 Issue は可能な限り独立させ、依存関係がある場合は明記する
+- ID の規則は `../document-interview/references/ID-Rules.md`（このスキルのディレクトリからの相対パス）に従う
+- 計画や要件にない内容の Issue は `requirements: [追加]` とし、どの文書（一次ドキュメントを含む）に反映が必要かを書く
+- 人の作業や判断が必要な Issue には `requires: human` を付ける
+
+## Issue の性質
+
+- 1 Issue は1コミットである必要はない。複数のステップに分けて実装してよい。
+- Issue がその場限りの修正にならないようにする。
+- Issue はコードの修正だけでなく、ユーザーとの議論や検討、ドキュメントの修正を扱ってもよい。

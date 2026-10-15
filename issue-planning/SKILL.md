@@ -24,24 +24,19 @@ ID の規則は `../document-interview/references/ID-Rules.md`（このスキル
 - Tests 欄の各テストは、先頭に検証する要件 ID を書く（例：`FR-T-7: 返信があるスレッドは削除できない`）。
 - 受け入れ条件には、対応する `AC` を書く。
 
-## ローカルissueの実施手順
-Issueごとに、branchを変更し、実装を進めます。
-Issue案だけ作成し実装は進めないこと。
+## ローカル Issue の書式
 
-- 1 Issue = Codexが1セッション程度で実装・検証できるサイズ
-- フロントマターとして、created_at: YYYY-MM-DDと、status: created/doing/done/stop、plan: [W-N]、requirements: [FR-…]、（必要なら）ui: [UI-N] を設定する
-- 各Issueは可能な限り独立させる
-- 依存関係がある場合は明記する
-- 各Issueに以下を含める
-  - Background
-  - Scope
-  - Out of scope
-  - Implementation notes
-  - Acceptance criteria
-  - Tests
-- 元計画へのリンクを付ける
+Issue の書式は `../create-local-issue/references/issue-template.md`（このスキルのディレクトリからの相対パス）に従う。
+Issue 案を作成するだけで、実装は進めない（実装は skill `implement-issue` で行う）。
 
-## issue
-- 1 Issueは1commitである必要はありません。複数のstepに分けて実装可能です。
-- Issueがその場限りの修正とならないようにする
-- Issueはコードの修正を行うだけでなく、ユーザーと議論、検討したり、ドキュメントの修正も可能
+- 1 Issue = エージェントが1セッション程度で実装・検証できるサイズ
+- 各 Issue は可能な限り独立させ、依存関係がある場合は明記する
+- 計画どおりの実装は `type: feature` とする
+- 本番環境の設定や手動確認など、人の作業を含む Issue には `requires: human` を付ける
+- 元計画（`W-N` の節）へのリンクを付ける
+
+## Issue の性質
+
+- 1 Issue は1コミットである必要はない。複数のステップに分けて実装してよい。
+- Issue がその場限りの修正にならないようにする。
+- Issue はコードの修正だけでなく、ユーザーとの議論や検討、ドキュメントの修正を扱ってもよい。

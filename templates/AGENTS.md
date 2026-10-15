@@ -52,8 +52,11 @@ issues/               Issue（1ファイル1件）
 
 ### Issue（issues/）
 
-- フロントマターに `created_at`、`status`（created / doing / done / stop）、`plan`、`requirements` を書く。
-- Issue ごとにブランチを切って実装する。完了したら `status: done` にする。
+- 作成は skill `create-local-issue`（計画からは `issue-planning`）、実装は skill `implement-issue` で行う。書式は `create-local-issue/references/issue-template.md`。
+- フロントマターに `created_at`、`status`（created / doing / done / stop）、`type`、`plan`、`requirements`、`requires`（agent / human）を書く。
+- `requires: human` の Issue は、人の作業が終わるまで `done` にしない。
+- 既存の文書や実装を変える場合は、変更 Issue（`type: change`）として差分・影響範囲・上流への反映を書く。上流への反映が終わるまで `done` にしない。
+- Issue ごとにブランチ（`issue/NNN-<内容>`）を切って実装する。
 
 ## 確認のタイミング
 

@@ -69,7 +69,8 @@ issues/            :Issue（1ファイル1件）
 
     ↓
 
-6. Issue ごとに実装する
+6. implement-issue: Issue を1件ずつ実装する（TDD、検証、新しい文脈でのレビュー、上流への反映、完了処理）
+   requires: human の Issue は、人の作業を終えてから完了にする
 
     ↓
 
@@ -92,10 +93,31 @@ spec/以下の一次ドキュメントをベースに、ドキュメントを作
 
 修正する場合も、spec/以下の一次ドキュメントをベースに、ドキュメントを作成、Issueを作成のフローで修正する。
 
+### 変更フロー
+
+既存の文書や実装を変える場合は、create-local-issue で変更 Issue（`type: change`）を作る。原則として2つの Issue に分ける。
+
+``` shell
+1. ドキュメント Issue: 差分（ADDED / MODIFIED / REMOVED）、影響範囲（検索で洗い出す）、上流への反映を書き、docs/D1・D2 を更新する
+   一次ドキュメント（spec/）の変更はユーザーの承認を得る
+
+    ↓
+
+2. 実装 Issue: 1 の差分と影響範囲を受け入れ条件に転記し、implement-issue で実装する
+
+    ↓
+
+   spec-analyze change: 変更が一次ドキュメントと矛盾しないか、反映漏れがないかを確認する
+```
+
+上流への反映がすべて「反映済み」または「不要」になるまで、変更 Issue は完了にしない（OpenSpec の archive に相当）。
+書式は `create-local-issue/references/issue-template.md`。
+
+### レビューや分析の指摘
+
+spec-analyze のレポート（`docs/work/analyze/`）やコードレビュー（`docs/work/reviews/`）の指摘は、create-local-issue で Issue にする。記録に残すだけで終えない。
+
 
 ## TODO
 - issueのレビュー
-- テストのカバレッジ
 - sub agent周り
-- ドキュメントのレビュー
-- 変更フロー：差分（ADDED / MODIFIED / REMOVED）と影響範囲の洗い出し、上流への反映（OpenSpec の archive 相当）
