@@ -14,6 +14,7 @@ description: プロジェクト概要を基に、プロジェクトの規模・�
 ## 主な候補
 
 * Requirements
+* Glossary（用語集）
 * Architecture
 * ADR
 * Data Design
@@ -53,6 +54,11 @@ description: プロジェクト概要を基に、プロジェクトの規模・�
 - 作成順序は Requirements（画面一覧と操作の流れが決まる）の後、Implementation Plan の前に置く。
 - 内容と品質方針は `document-interview/references/UI-Guidelines.md` に従う。品質方針は「Awwwards、Webby Awards、The FWA で賞を獲れるくらいのクオリティを目指し、セルフチェックでその基準になるまでクオリティアップを繰り返す」とする。
 - UX / User Flow を独立文書にしない場合は、主要な操作シナリオと画面遷移を UI / Design Guidelines に含める。
+
+## Glossary
+
+用語集（`./docs/D2/GLOSSARY.md`）は、規模にかかわらず常に作成対象に含める。Requirements と同時に作る。
+書式は `../document-interview/references/Glossary.md`（このスキルのディレクトリからの相対パス）に従う。
 
 ## ID
 

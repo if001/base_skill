@@ -32,5 +32,8 @@ ID の規則は `../document-interview/references/ID-Rules.md`（このスキル
 * 主な制約
 * 既知の前提
 * 未決事項
+* 用語の候補（一次ドキュメントに現れる主要な名詞と、その意味。Requirements の作成時に `docs/D2/GLOSSARY.md` として確定する）
 
 詳細設計には踏み込まない。
+
+書き方は `../document-interview/references/Writing-Rules.md`（このスキルのディレクトリからの相対パス）に従い、表と箇条書きで短く書く。

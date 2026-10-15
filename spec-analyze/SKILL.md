@@ -5,7 +5,7 @@ argument-hint: "[docs|plan|issues|impl|change|all]"
 context: fork
 agent: general-purpose
 background: false
-allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/trace_check.py *)
+allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/trace_check.py *) Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/doc_check.py *) Bash(npx textlint *)
 ---
 
 一次ドキュメント（`spec/` 以下）と下流の成果物を照合し、乖離を報告する。
@@ -15,7 +15,7 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
 
 ## 原則
 
-- **読み取り専用**：レポートファイル以外は作成・変更しない。修正案は書いてよいが、適用しない。
+- **読み取り専用**：レポートファイル（と検査用に生成する `.textlint/prh.generated.yml`）以外は作成・変更しない。修正案は書いてよいが、適用しない。
 - **一次ドキュメントが最上位**：一次ドキュメントとの矛盾は、他の文書がどう書いていても CRITICAL とする（Spec Kit の constitution と同じ扱い）。
 - **中間の解釈を前提にしない**：下流の文書の解釈を正しいと仮定せず、一次ドキュメントの文言と直接比べる。
 - **指摘を絞る**：一次ドキュメント、要件、ID の対応に関わるずれだけを報告する。好みの問題や、要件に関わらない改善提案は報告しない。指摘を探す役割を与えられると、問題のない箇所にも指摘を作りがちなため。
@@ -42,6 +42,7 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
    ```
 
    結果（ERROR / WARN / INFO）をレポートに取り込む。範囲表記（`FR-1〜4`）など、規則違反が原因の WARN はその旨を書く。
+   プロジェクトに textlint が導入されている場合は、`python3 ${CLAUDE_SKILL_DIR}/scripts/doc_check.py glossary-to-prh` のあとに `npx textlint docs/D1 docs/D2` と `python3 ${CLAUDE_SKILL_DIR}/scripts/doc_check.py table-length` を実行し、件数をレポートに書く（ただし `.textlint/prh.generated.yml` 以外のファイルは変更しない）。
 3. 意味の照合を行う。次の観点ごとに、根拠（ファイルと行、または節）を添えて記録する。
 
    | 観点 | 内容 |
@@ -52,6 +53,7 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
    | D. 文書間の不整合 | 用語の揺れ、画面数・ルート・データ項目・文言の食い違い、変更後に古くなった記述 |
    | E. 網羅性 | 機械検査の結果の解釈。要件に対応する作業・Issue・テストがない、根拠のない作業がある、受け入れ条件が未照合のまま |
    | F. 曖昧さ | 検証できない要件、`[NEEDS CLARIFICATION]` などの未解決の印、判断が分かれる記述 |
+   | G. 用語 | `docs/D2/GLOSSARY.md` にない用語の使用、使わない言い換えの使用（表記揺れ）、コード上の名前と実装の識別子のずれ（`impl` 以降） |
 
 4. 各指摘に重大度を付ける。
 
@@ -60,7 +62,7 @@ Claude Code 以外で実行する場合や `context: fork` が効かない環境
    | CRITICAL | 一次ドキュメントとの矛盾。未定義の ID への参照 |
    | HIGH | 要件の未実装・未テスト。文書にない機能。上流に戻っていない決定 |
    | MEDIUM | 文書間の不整合、古い記述、由来のない ID |
-   | LOW | 用語の揺れなど、動作や判断に影響しないもの |
+   | LOW | 表記揺れ、文の長さなど、動作や判断に影響しないもの（用語の意味が食い違う場合は MEDIUM 以上） |
 
 5. レポートを `docs/work/analyze/YYYY-MM-DD-<段階>.md` に書く（形式は [references/report-template.md](references/report-template.md)）。
 6. 会話には、重大度ごとの件数と、Issue 化を推奨する指摘の一覧だけを返す。

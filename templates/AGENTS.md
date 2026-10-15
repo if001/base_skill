@@ -9,7 +9,7 @@
 spec/                 一次ドキュメント（人が書く）
 docs/
   D1/                 プロジェクト概要（discovery-interview）
-  D2/                 設計文書と計画（document-interview、documentation-planning、implementation-planning）
+  D2/                 設計文書、用語集、計画（document-interview、documentation-planning、implementation-planning）
   work/               作業中の記録（エージェントが作業中に作るもの）
     analyze/          spec-analyze のレポート
     reviews/          コードレビューの結果
@@ -25,7 +25,7 @@ issues/               Issue（1ファイル1件）
 |---|---|---|---|
 | `spec/` | 正（最上位） | `CONCEPT.md` | `C-NN` |
 | `docs/D1/` | 正 | `PROJECT_OVERVIEW.md` | `OV-NN` |
-| `docs/D2/` | 正 | `DOCUMENTATION_PLAN.md`、`REQUIREMENTS.md`、`ARCHITECTURE.md`、`TEST_STRATEGY.md`、`UI_GUIDELINES.md`、`IMPLEMENTATION_PLAN.md` | `FR` / `NFR` / `AC` / `UI` / `ADR` / `W` |
+| `docs/D2/` | 正 | `DOCUMENTATION_PLAN.md`、`GLOSSARY.md`、`REQUIREMENTS.md`、`ARCHITECTURE.md`、`TEST_STRATEGY.md`、`UI_GUIDELINES.md`、`IMPLEMENTATION_PLAN.md` | `FR` / `NFR` / `AC` / `UI` / `ADR` / `W` |
 | `docs/work/` | 記録（正ではない） | `YYYY-MM-DD-<内容>.md` | 参照のみ |
 | `issues/` | 作業の単位 | `NNN-<内容>.md` | フロントマターで参照 |
 
@@ -41,6 +41,12 @@ issues/               Issue（1ファイル1件）
 - 実装とテストは、この2つと `spec/` だけを根拠にする。`docs/work/` の内容を根拠にしない。
 - 内容を変えるときは、変更用の Issue を作り、その中で更新する。
 - ID は `document-interview/references/ID-Rules.md`（スキルのディレクトリ）に従って振り、参照する。ID を振り直さない。
+
+### 書き方と用語
+
+- `docs/D1/` と `docs/D2/` は、`document-interview/references/Writing-Rules.md` に従って短く書く（1要件1文、1文80字以内、表と箇条書きを基本にする）。
+- 文書とコードの用語は `docs/D2/GLOSSARY.md` に合わせる。新しい用語は先に用語集に追加する。
+- 文書を更新したら、下のコマンド欄の「文書の検査」を実行し、違反を0件にする。
 
 ### 作業中の記録（docs/work/）
 
@@ -83,3 +89,4 @@ python3 <スキルのディレクトリ>/spec-analyze/scripts/trace_check.py --r
 | テスト | |
 | カバレッジ | |
 | 型チェック | |
+| 文書の検査 | `python3 <スキルのディレクトリ>/spec-analyze/scripts/doc_check.py glossary-to-prh && npx textlint docs/D1 docs/D2 && python3 <スキルのディレクトリ>/spec-analyze/scripts/doc_check.py table-length` |

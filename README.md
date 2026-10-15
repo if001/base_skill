@@ -13,7 +13,7 @@ claudeの場合
 ``` shell
 spec/              :一次ドキュメント（人が書き、内容を把握しているもの）C-NN
 docs/D1/           :discovery-interview が作成する PROJECT_OVERVIEW.md（OV-NN）
-docs/D2/           :設計文書と計画（DOCUMENTATION_PLAN、REQUIREMENTS、ARCHITECTURE、
+docs/D2/           :設計文書、用語集、計画（DOCUMENTATION_PLAN、GLOSSARY、REQUIREMENTS、ARCHITECTURE、
                     TEST_STRATEGY、UI_GUIDELINES、IMPLEMENTATION_PLAN）
 docs/work/         :作業中の記録（正ではない）
   analyze/         :spec-analyze のレポート
@@ -87,6 +87,26 @@ issues/            :Issue（1ファイル1件）
 python3 .claude/skills/spec-analyze/scripts/trace_check.py --root .
 ```
 
+
+## 文章と用語の検査
+
+AI が書く文書は長くなりやすいため、書き方の規則（`document-interview/references/Writing-Rules.md`）と機械的な検査で短く保つ。
+用語は `docs/D2/GLOSSARY.md` で定義し、その「使わない言い換え」列から表記揺れの辞書を生成する（`document-interview/references/Glossary.md`）。
+
+プロジェクトへの導入：
+
+``` shell
+npm i -D textlint textlint-rule-preset-ja-technical-writing textlint-rule-prh
+cp <base_skill>/templates/.textlintrc.json <base_skill>/templates/.textlintignore .
+```
+
+検査（`<skills>` はスキルのインストール先。例：`.claude/skills`）：
+
+``` shell
+python3 <skills>/spec-analyze/scripts/doc_check.py glossary-to-prh   # GLOSSARY.md → .textlint/prh.generated.yml
+npx textlint docs/D1 docs/D2                                         # 文の長さ、冗長な表現、表記揺れ
+python3 <skills>/spec-analyze/scripts/doc_check.py table-length      # 表のセルの文の長さ（textlint は表のセルの長さを検査しない）
+```
 
 ## Issue駆動で開発を進める
 spec/以下の一次ドキュメントをベースに、ドキュメントを作成、Issueを作成する。

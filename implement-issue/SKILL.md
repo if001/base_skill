@@ -27,6 +27,7 @@ argument-hint: "[Issue のファイルまたは番号]"
 `../implementation-planning/references/tdd.md`（このスキルのディレクトリからの相対パス）に従い、Tests の項目を1件ずつ red → green で進める。
 
 - テスト名の先頭に、検証する要件 ID を書く（例：`FR-T-7: 返信があるスレッドは削除できない`）。
+- 型名、テーブル名、変数名、画面の文言は、`docs/D2/GLOSSARY.md` の「コード上の名前」と「用語」に合わせる。用語集にない概念が必要になった場合は、3 の扱いに従って先に用語集に追加する。
 - 画面を追加・変更した場合は、`docs/D2/UI_GUIDELINES.md` のセルフチェックを行い、記録を `docs/work/design/` に残す。
 
 ### 3. 実装中に決めたこと
