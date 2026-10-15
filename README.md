@@ -2,6 +2,9 @@
 ## install
 `npx skills add issei-fujimoto-accelia/base_skills`
 
+claudeの場合
+`npx skills add issei-fujimoto-accelia/base_skills -a claude-code`
+
 
 ## ドキュメント構成
 
@@ -35,7 +38,7 @@ docs/planning/ :AIが実装中に作成する計画など
    必要ドキュメントとして、ARCHITECTURE.md, TEST_STRATEGY.mdなどが作成されるので、各ドキュメントごとにskillを実行する
 
     ↓
-4. Implementation Plan: 各ドキュメントからどのように実装を進めるかの計画を立てる。(TDDにより進めることはここで設定する)
+4. implementation-plan: 各ドキュメントからどのように実装を進めるかの計画を立てる。(TDDにより進めることはここで設定する)
 
     ↓
 
@@ -55,3 +58,5 @@ spec/以下の一次ドキュメントをベースに、ドキュメントを作
 - sub agent周り
 - ドキュメントのレビュー
 - 実装からドキュメント、一次ドキュメントの乖離を防ぐフロー
+- 共通化部品を作るステップがあっても良いかも
+- デザインを作成するステップがあっても良いかも

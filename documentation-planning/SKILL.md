@@ -18,6 +18,7 @@ description: プロジェクト概要を基に、プロジェクトの規模・�
 * ADR
 * Data Design
 * API Spec
+- UI / Design Guidelines
 * UX / User Flow
 * Security Design
 * Privacy Design
@@ -43,3 +44,7 @@ description: プロジェクト概要を基に、プロジェクトの規模・�
 - Data Design
 - API Spec
 - Test Strategy
+
+### UI / Design Guidelines
+クオリティ基準としてはawwwardsやwebby awards、FWSで賞を獲れるくらいのクオリティを目指して、
+セルフチェックでそのクオリティ基準になるまで自分でクオリティアップを繰り返すような方針とします。

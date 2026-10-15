@@ -17,3 +17,6 @@ description: Requirements、Architecture、ADR、Test Strategy など、指定�
 既に決まっていることを再質問しない。
 
 質問すること自体を目的にせず、ドキュメント完成をゴールとする。
+
+## 制約
+作成するドキュメントには、`./docs/PROJECT_OVERVIEW.md `のどの内容を元にしたかの識別子をつけること
